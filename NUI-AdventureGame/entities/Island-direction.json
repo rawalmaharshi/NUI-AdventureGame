@@ -1,0 +1,9 @@
+{
+  "id": "5988f1df-1757-4f8f-bc42-90dee097fd91",
+  "name": "Island-direction",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": true,
+  "allowFuzzyExtraction": true
+}

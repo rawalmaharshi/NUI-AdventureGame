@@ -1,0 +1,53 @@
+{
+  "id": "8aba889d-4bac-417a-a965-77197de12043",
+  "name": "escapeRoom-Q2",
+  "auto": true,
+  "contexts": [
+    "quesOneCorrect"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "quesOneCorrect",
+          "parameters": {},
+          "lifespan": 1
+        },
+        {
+          "name": "quesTwoCorrect",
+          "parameters": {},
+          "lifespan": 1
+        },
+        {
+          "name": "escapeRoom-Q2-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "escapeRoomQ2"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,144 @@
+[
+  {
+    "id": "a73312c6-c495-4b2f-8c55-3fa0d4853440",
+    "data": [
+      {
+        "text": "pick it up",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "31ddd157-751a-4889-bfd6-2261e29f779a",
+    "data": [
+      {
+        "text": "obtain the crowbar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f5bed195-4c48-4059-83a9-eaf70bff8943",
+    "data": [
+      {
+        "text": "let\u0027s",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " pick up the crowbar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "55bd1c64-27b0-4447-8cf7-15a65f5b04b1",
+    "data": [
+      {
+        "text": "let\u0027s",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " get the crowbar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  },
+  {
+    "id": "fb80484e-1724-40af-974f-02bf02419f5a",
+    "data": [
+      {
+        "text": "hold the crowbar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ccb02d8f-b9c7-4a78-978a-bc5bda56f424",
+    "data": [
+      {
+        "text": "get the crowbar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ecb234fc-3d5c-4015-bda9-c4319c9cbfc5",
+    "data": [
+      {
+        "text": "pick the crowbar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "76e8c1e2-1915-4d0c-9b45-0bcabe97ebf7",
+    "data": [
+      {
+        "text": "pick",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "5889da4f-31e0-4e6b-9acc-7b17ee3d7841",
+    "data": [
+      {
+        "text": "take",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "64884436-f395-4304-a620-98ea63238526",
+    "data": [
+      {
+        "text": "take it",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1220e3bc-d854-4ec0-931c-e5a4c91c6135",
+    "data": [
+      {
+        "text": "pick up",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

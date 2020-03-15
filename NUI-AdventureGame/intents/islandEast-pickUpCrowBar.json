@@ -1,0 +1,49 @@
+{
+  "id": "593eca79-f371-40cd-9eca-7c39c8d2c201",
+  "name": "islandEast-pickUpCrowBar",
+  "auto": true,
+  "contexts": [
+    "pickUpCrowBar"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "pickUpCrowBar",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "explore",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "islandEast-pickUpCrowBar-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "picking up crowbar"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

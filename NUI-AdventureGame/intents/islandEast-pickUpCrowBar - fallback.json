@@ -1,0 +1,38 @@
+{
+  "id": "586fdb22-c4e3-4987-9e3b-61c2799d4000",
+  "parentId": "593eca79-f371-40cd-9eca-7c39c8d2c201",
+  "rootParentId": "593eca79-f371-40cd-9eca-7c39c8d2c201",
+  "name": "islandEast-pickUpCrowBar - fallback",
+  "auto": false,
+  "contexts": [
+    "islandEast-pickUpCrowBar-followup",
+    "explore",
+    "pickUpCrowBar"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "islandEast-pickUpCrowBar.islandEast-pickUpCrowBar-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

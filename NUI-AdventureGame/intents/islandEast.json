@@ -1,0 +1,83 @@
+{
+  "id": "e9c6a878-0354-4137-93e8-5f1206ad0612",
+  "parentId": "22aa858c-ee45-4c62-858a-ab39c1931e19",
+  "rootParentId": "22aa858c-ee45-4c62-858a-ab39c1931e19",
+  "name": "islandEast",
+  "auto": true,
+  "contexts": [
+    "explore"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "MynameisSam.MynameisSam-yes.NameIntent-yes-next.AfterDieRoll3-yes.AfterDieRoll3-yesIsland-DirectionIntent-custom",
+      "affectedContexts": [
+        {
+          "name": "explore",
+          "parameters": {},
+          "lifespan": 90
+        },
+        {
+          "name": "giveBanana",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "islandEast-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "6fc380df-28d5-479a-a1fe-589dfd1f8ada",
+          "required": false,
+          "dataType": "@Island-direction",
+          "name": "island-direction",
+          "value": "$island-direction",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "I need a direction to go to"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "f8a71e73-437a-4ff4-87aa-6b49768d035a",
+          "required": false,
+          "dataType": "@Island-direction",
+          "name": "island-direction1",
+          "value": "$island-direction1",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

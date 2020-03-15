@@ -1,0 +1,42 @@
+{
+  "id": "2b071e50-50e4-44b1-a178-92d643e06a76",
+  "parentId": "f06df193-e70a-4273-8fa5-856da0340d2b",
+  "rootParentId": "f06df193-e70a-4273-8fa5-856da0340d2b",
+  "name": "rollDie",
+  "auto": true,
+  "contexts": [
+    "NameIntent-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "MynameisSam.MynameisSam-yes",
+      "affectedContexts": [
+        {
+          "name": "NameIntent-yes-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

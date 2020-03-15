@@ -1,0 +1,38 @@
+{
+  "id": "4212496b-753c-40c6-a7da-8d2355408960",
+  "parentId": "a22c1dec-2276-4fbf-a703-8c08d8a7d247",
+  "rootParentId": "9737631e-9e2c-4720-b3e3-e6c9c2fe79f5",
+  "name": "islandNorthOpenBox - fallback",
+  "auto": false,
+  "contexts": [
+    "explore",
+    "openBox",
+    "islandNorthOpenBox-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "MynameisSam.MynameisSam-yes.NameIntent-yes-next.AfterDieRoll3-yes.AfterDieRoll3-yesIsland-DirectionIntent-custom.Island-NorthIntent-custom.islandNorthOpenBox-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

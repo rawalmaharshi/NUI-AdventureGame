@@ -1,0 +1,61 @@
+{
+  "id": "a22c1dec-2276-4fbf-a703-8c08d8a7d247",
+  "parentId": "9737631e-9e2c-4720-b3e3-e6c9c2fe79f5",
+  "rootParentId": "9737631e-9e2c-4720-b3e3-e6c9c2fe79f5",
+  "name": "islandNorthOpenBox",
+  "auto": true,
+  "contexts": [
+    "openBox"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "MynameisSam.MynameisSam-yes.NameIntent-yes-next.AfterDieRoll3-yes.AfterDieRoll3-yesIsland-DirectionIntent-custom.Island-NorthIntent-custom",
+      "affectedContexts": [
+        {
+          "name": "openBox",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "explore",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "islandNorthOpenBox-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "condition": "",
+          "textToSpeech": "",
+          "ssml": "\u003cspeak\u003eOh! Its not opening! Should we find something. We should look elsewhere! Which direction to go now?\u003c/speak\u003e",
+          "displayText": ""
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

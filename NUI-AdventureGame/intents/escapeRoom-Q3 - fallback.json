@@ -1,0 +1,43 @@
+{
+  "id": "40367fa2-a7e1-4861-bd40-13cecafa479b",
+  "parentId": "26d9fd17-8d5b-4c19-97a9-ee3140d00be6",
+  "rootParentId": "26d9fd17-8d5b-4c19-97a9-ee3140d00be6",
+  "name": "escapeRoom-Q3 - fallback",
+  "auto": false,
+  "contexts": [
+    "escapeRoom-Q3-followup",
+    "quesTwoCorrect"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "escapeRoom-Q3.escapeRoom-Q3-fallback",
+      "affectedContexts": [
+        {
+          "name": "quesTwoCorrect",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

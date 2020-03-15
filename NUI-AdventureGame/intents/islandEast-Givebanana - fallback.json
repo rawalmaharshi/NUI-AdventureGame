@@ -1,0 +1,38 @@
+{
+  "id": "716cbce7-0f4d-4911-a0e5-d0078bee9053",
+  "parentId": "85b51d0b-877d-4ec1-b1fb-6a235834cf0a",
+  "rootParentId": "85b51d0b-877d-4ec1-b1fb-6a235834cf0a",
+  "name": "islandEast-Givebanana - fallback",
+  "auto": false,
+  "contexts": [
+    "islandEast-Givebanana-followup",
+    "explore",
+    "giveBanana"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "islandEast-Givebanana.islandEast-Givebanana-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

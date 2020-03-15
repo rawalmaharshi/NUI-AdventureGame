@@ -1,0 +1,38 @@
+{
+  "id": "300d3674-4f4b-41b6-abf8-4f7ff80a4c09",
+  "parentId": "f7c2920b-56e9-42cf-b405-f16b29aa0984",
+  "rootParentId": "f7c2920b-56e9-42cf-b405-f16b29aa0984",
+  "name": "islandWest-cutTree - fallback",
+  "auto": false,
+  "contexts": [
+    "explore",
+    "cutTree",
+    "islandWest-cutTree-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "islandWest-cutTree.islandWest-cutTree-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

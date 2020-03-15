@@ -1,0 +1,38 @@
+{
+  "id": "bef06649-14bf-4db4-a1c1-eb44a4deec9e",
+  "parentId": "0a40dd3e-d8f7-462d-8104-63559cdf164d",
+  "rootParentId": "0a40dd3e-d8f7-462d-8104-63559cdf164d",
+  "name": "islandWest-shakeTree - fallback",
+  "auto": false,
+  "contexts": [
+    "explore",
+    "shakeTree",
+    "islandWest-shakeTree-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "islandWest-shakeTree.islandWest-shakeTree-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

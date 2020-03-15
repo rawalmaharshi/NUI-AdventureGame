@@ -1,0 +1,44 @@
+{
+  "id": "b10d3c72-2ed7-4508-9646-dc742540e138",
+  "parentId": "a94980cd-bcd3-4f38-868c-04f056751eb3",
+  "rootParentId": "a94980cd-bcd3-4f38-868c-04f056751eb3",
+  "name": "startEscapeRoom - fallback",
+  "auto": false,
+  "contexts": [
+    "quesOneCorrect",
+    "startEscapeRoom-followup",
+    "NameIntent-yes-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "startEscapeRoom.startEscapeRoom-fallback",
+      "affectedContexts": [
+        {
+          "name": "NameIntent-yes-followup",
+          "parameters": {},
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

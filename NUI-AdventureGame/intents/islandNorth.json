@@ -1,0 +1,63 @@
+{
+  "id": "9737631e-9e2c-4720-b3e3-e6c9c2fe79f5",
+  "name": "islandNorth",
+  "auto": true,
+  "contexts": [
+    "explore"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "MynameisSam.MynameisSam-yes.NameIntent-yes-next.AfterDieRoll3-yes.AfterDieRoll3-yesIsland-DirectionIntent-custom",
+      "affectedContexts": [
+        {
+          "name": "explore",
+          "parameters": {},
+          "lifespan": 90
+        },
+        {
+          "name": "openBox",
+          "parameters": {},
+          "lifespan": 1
+        },
+        {
+          "name": "islandNorth-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "8c4a0236-0b1e-460a-bd5e-28517abbad63",
+          "required": false,
+          "dataType": "@Island-direction",
+          "name": "Island-direction",
+          "value": "$Island-direction",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

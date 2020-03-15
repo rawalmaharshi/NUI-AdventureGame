@@ -1,0 +1,81 @@
+{
+  "id": "7a7b11cb-250d-4e9b-baf5-ffe7ab781490",
+  "name": "islandWest",
+  "auto": true,
+  "contexts": [
+    "explore"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "explore",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "pickUpCrowBar",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "shakeTree",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "cutTree",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "islandWest-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "8552c099-9cb7-4ac6-91fd-4d6bbaba6584",
+          "required": false,
+          "dataType": "@Island-direction",
+          "name": "island-direction",
+          "value": "$island-direction",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": true
+        }
+      ],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "condition": "",
+          "textToSpeech": "",
+          "ssml": "\u003cspeak\u003e\u003caudio src \u003d \"https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/running_on_sand-%5BAudioTrimmer.com%5D.mp3?alt\u003dmedia\u0026amp;token\u003de5897db9-5527-4c41-8033-dc02521ab58f \"\u003e steps sound\u003c/audio\u003e Look, here is a \u0027crowbar\u0027 lying under the banana tree I wonder if we can do something with this? Or should we go somewhere else? \u003c/speak\u003e",
+          "displayText": ""
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,51 @@
+{
+  "id": "22aa858c-ee45-4c62-858a-ab39c1931e19",
+  "name": "atBoat",
+  "auto": true,
+  "contexts": [
+    "explore"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "MynameisSam.MynameisSam-yes.NameIntent-yes-next.AfterDieRoll3-yes",
+      "affectedContexts": [
+        {
+          "name": "explore",
+          "parameters": {},
+          "lifespan": 90
+        },
+        {
+          "name": "atBoat-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "e643b298-b17a-4fe5-af6f-2317dbc393e1",
+          "required": false,
+          "dataType": "@Island-direction",
+          "name": "Island-direction",
+          "value": "$Island-direction",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,40 @@
+{
+  "id": "96c519a1-121d-4f67-8fbf-dfebde5f8f53",
+  "parentId": "7a7b11cb-250d-4e9b-baf5-ffe7ab781490",
+  "rootParentId": "7a7b11cb-250d-4e9b-baf5-ffe7ab781490",
+  "name": "islandWest - fallback",
+  "auto": false,
+  "contexts": [
+    "explore",
+    "shakeTree",
+    "cutTree",
+    "pickUpCrowBar",
+    "islandWest-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "islandWest.islandWest-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

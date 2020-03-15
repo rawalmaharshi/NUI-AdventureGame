@@ -1,0 +1,54 @@
+{
+  "id": "2bb22094-0f83-4aca-ae93-0bb0f16f5a1b",
+  "parentId": "9737631e-9e2c-4720-b3e3-e6c9c2fe79f5",
+  "rootParentId": "9737631e-9e2c-4720-b3e3-e6c9c2fe79f5",
+  "name": "islandNorth - fallback",
+  "auto": false,
+  "contexts": [
+    "explore",
+    "openBox",
+    "islandNorth-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "islandNorth.islandNorth-fallback",
+      "affectedContexts": [
+        {
+          "name": "explore",
+          "parameters": {},
+          "lifespan": 1
+        },
+        {
+          "name": "openBox",
+          "parameters": {},
+          "lifespan": 1
+        },
+        {
+          "name": "islandNorth-followup",
+          "parameters": {},
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

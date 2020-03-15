@@ -1,0 +1,49 @@
+{
+  "id": "f7c2920b-56e9-42cf-b405-f16b29aa0984",
+  "name": "islandWest-cutTree",
+  "auto": true,
+  "contexts": [
+    "cutTree"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "cutTree",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "explore",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "islandWest-cutTree-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

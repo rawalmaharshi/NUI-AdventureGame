@@ -1,0 +1,33 @@
+[
+  {
+    "value": "north",
+    "synonyms": [
+      "north",
+      "forward",
+      "straight",
+      "ahead"
+    ]
+  },
+  {
+    "value": "south",
+    "synonyms": [
+      "south",
+      "behind",
+      "backwards"
+    ]
+  },
+  {
+    "value": "east",
+    "synonyms": [
+      "east",
+      "right"
+    ]
+  },
+  {
+    "value": "west",
+    "synonyms": [
+      "west",
+      "left"
+    ]
+  }
+]

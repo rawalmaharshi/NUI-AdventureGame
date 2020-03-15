@@ -1,0 +1,43 @@
+{
+  "id": "b83b9bdd-2fa3-4ea9-9515-8e6a2282f3ea",
+  "name": "shouldWePlay-No",
+  "auto": true,
+  "contexts": [
+    "NameIntent-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "NameIntent.NameIntent-no",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "condition": "",
+          "textToSpeech": "#NameIntent-followup.given-name it was a pleasure! See you next time.",
+          "ssml": "",
+          "displayText": ""
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

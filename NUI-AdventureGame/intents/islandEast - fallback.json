@@ -1,0 +1,38 @@
+{
+  "id": "7237d27c-4073-4c04-b90d-5d7581841551",
+  "parentId": "e9c6a878-0354-4137-93e8-5f1206ad0612",
+  "rootParentId": "22aa858c-ee45-4c62-858a-ab39c1931e19",
+  "name": "islandEast - fallback",
+  "auto": false,
+  "contexts": [
+    "explore",
+    "islandEast-followup",
+    "giveBanana"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "MynameisSam.MynameisSam-yes.NameIntent-yes-next.AfterDieRoll3-yes.AfterDieRoll3-yesIsland-DirectionIntent-custom.islandEast-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

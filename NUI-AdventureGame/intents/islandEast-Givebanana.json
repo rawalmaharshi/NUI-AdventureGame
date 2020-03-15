@@ -1,0 +1,49 @@
+{
+  "id": "85b51d0b-877d-4ec1-b1fb-6a235834cf0a",
+  "name": "islandEast-Givebanana",
+  "auto": true,
+  "contexts": [
+    "giveBanana"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "explore",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "giveBanana",
+          "parameters": {},
+          "lifespan": 1
+        },
+        {
+          "name": "islandEast-Givebanana-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "giving banana to monkey if i have it"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

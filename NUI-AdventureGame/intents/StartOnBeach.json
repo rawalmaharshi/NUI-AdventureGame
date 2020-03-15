@@ -1,0 +1,55 @@
+{
+  "id": "84c1deba-ad21-41ad-b8dc-c33ee1e071df",
+  "parentId": "2b071e50-50e4-44b1-a178-92d643e06a76",
+  "rootParentId": "f06df193-e70a-4273-8fa5-856da0340d2b",
+  "name": "StartOnBeach",
+  "auto": true,
+  "contexts": [
+    "NameIntent-yes-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "MynameisSam.MynameisSam-yes.NameIntent-yes-next",
+      "affectedContexts": [
+        {
+          "name": "explore",
+          "parameters": {},
+          "lifespan": 99
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "condition": "",
+          "textToSpeech": "",
+          "ssml": "\u003cspeak\u003e\u003caudio src\u003d\"https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/dice-roll.mp3?alt\u003dmedia\u0026amp;token\u003d1a135d26-01d3-489a-944d-095e07cce7cf\"\u003e\u003c/audio\u003e\nYou have rolled a 3.\n\u003caudio src \u003d \"https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/warpSound.mp3?alt\u003dmedia\u0026amp;token\u003d1a5c3061-4b69-4a7f-a6ba-c9ab67c8ef06\"\u003ewarp sound Effect\u003c/audio\u003e\u003cbreak time\u003d\"2\" /\u003e\n\u003caudio src \u003d \"https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/ocean_island-%5BAudioTrimmer.com%5D.mp3?alt\u003dmedia\u0026amp;token\u003d3f288442-dd15-47ee-aac2-eb36ff37521c\"\u003e Beach Sound Effect\u003c/audio\u003eLooks like we are trapped on this island, and there is a wrecked boat. Should we try to fix it to get out of this island ?\u003c/speak\u003e",
+          "displayText": ""
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "StartBeach"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

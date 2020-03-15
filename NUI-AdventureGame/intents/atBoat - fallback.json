@@ -1,0 +1,40 @@
+{
+  "id": "a3263e8d-9f92-43a0-bbdb-2ffa25701cf0",
+  "parentId": "22aa858c-ee45-4c62-858a-ab39c1931e19",
+  "rootParentId": "22aa858c-ee45-4c62-858a-ab39c1931e19",
+  "name": "atBoat - fallback",
+  "auto": false,
+  "contexts": [
+    "atBoat-followup",
+    "explore"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "atBoat.atBoat-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "condition": "",
+          "textToSpeech": "",
+          "ssml": "\u003cspeak\u003eI think we still need few more items to fix the boat. Lets go and find them, Which direction should we go ?\u003c/speak\u003e",
+          "displayText": ""
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
