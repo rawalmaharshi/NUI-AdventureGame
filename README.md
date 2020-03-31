@@ -3,11 +3,10 @@ A voice based adventure game that runs on the Google home mini. Built using Dial
 
 ## Group Info
 
-Ayush Sharma      4034-1961​
+Ayush Sharma    
 
-Denzil Barboza    6672-2265​
+Denzil Barboza    
 
-Maharshi Rawal    9990-8457​
+Maharshi Rawal    
 
-Parth Chitroda    5189-1737​
-
+Parth Chitroda
