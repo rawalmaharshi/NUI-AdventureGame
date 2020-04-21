@@ -623,11 +623,12 @@ app.intent("startEscapeRoom", (conv, agent) => {
       lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui52.mp3?alt=media&amp;token=db5853c6-a930-4b0c-ae51-26c99978f9a4">Two</audio>`;
     }
 
-    livessml = `<speak><audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui55.mp3?alt=media&amp;token=2bf80ed6-fadb-42fc-abcc-ee8344acd455">You have</audio>` +
-      lives + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui56.mp3?alt=media&amp;token=d7b23bb4-fa27-436e-b85c-99d2ba5776eb">lives left</audio></speak>`;
-    conv.ask(livessml);
+    livessml = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui55.mp3?alt=media&amp;token=2bf80ed6-fadb-42fc-abcc-ee8344acd455">You have</audio>` +
+      lives + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui56.mp3?alt=media&amp;token=d7b23bb4-fa27-436e-b85c-99d2ba5776eb">lives left</audio>`;
+
     const ssml =
       `<speak>
+      ${livessml}
    <break time="0.2" />
    <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/quiz1.mp3?alt=media&amp;token=755eec63-b08e-4d33-b558-0fd57aa89003">
    The one who built it, sold it 
@@ -711,11 +712,12 @@ app.intent('escapeRoom-Q2', (conv) => {
       lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui52.mp3?alt=media&amp;token=db5853c6-a930-4b0c-ae51-26c99978f9a4">Two</audio>`;
     }
 
-    livessml = `<speak><audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui55.mp3?alt=media&amp;token=2bf80ed6-fadb-42fc-abcc-ee8344acd455">You have</audio>` +
-      lives + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui56.mp3?alt=media&amp;token=d7b23bb4-fa27-436e-b85c-99d2ba5776eb">lives left</audio></speak>`;
-    conv.ask(livessml);
+    livessml = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui55.mp3?alt=media&amp;token=2bf80ed6-fadb-42fc-abcc-ee8344acd455">You have</audio>` +
+      lives + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui56.mp3?alt=media&amp;token=d7b23bb4-fa27-436e-b85c-99d2ba5776eb">lives left</audio>`;
+
     const ssml =
       `<speak>
+      ${livessml}
    <break time="0.2" />
    <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/quiz2.mp3?alt=media&amp;token=b8f65f6f-78bf-402e-9886-3a046b2e3b93">
   Jane, Allie, and Pat each planted a tree 90cm in height. By the time Jane's tree grew by 1cm, Ally's tree grew by 2cm.
