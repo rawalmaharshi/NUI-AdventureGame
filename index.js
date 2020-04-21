@@ -655,8 +655,8 @@ app.intent('escapeRoom-Q2', (conv) => {
   </audio>
   <break time="0.2" />
   <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/quiz2.mp3?alt=media&amp;token=b8f65f6f-78bf-402e-9886-3a046b2e3b93">
-  Jane, Allie, and Pat each planted a tree 90cm in height. By the time Jane's tree grew by 1cm, Ally's tree grew by 2cm.
-  By the time Ally's tree grew by 2cm, Pat's tree grew by 3cm.
+  Jane, Alley, and Pat each planted a tree 90cm in height. By the time Jane's tree grew by 1cm, Alley's tree grew by 2cm.
+  By the time Alley's tree grew by 2cm, Pat's tree grew by 3cm.
   How tall is Jane's tree when the height of Pat's tree is 108cm?
   </audio>
 
@@ -720,8 +720,8 @@ app.intent('escapeRoom-Q2', (conv) => {
       ${livessml}
    <break time="0.2" />
    <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/quiz2.mp3?alt=media&amp;token=b8f65f6f-78bf-402e-9886-3a046b2e3b93">
-  Jane, Allie, and Pat each planted a tree 90cm in height. By the time Jane's tree grew by 1cm, Ally's tree grew by 2cm.
-  By the time Ally's tree grew by 2cm, Pat's tree grew by 3cm.
+  Jane, Alley, and Pat each planted a tree 90cm in height. By the time Jane's tree grew by 1cm, Alley's tree grew by 2cm.
+  By the time Alley's tree grew by 2cm, Pat's tree grew by 3cm.
   How tall is Jane's tree when the height of Pat's tree is 108cm?
   </audio>
      </speak>`;
@@ -733,21 +733,50 @@ app.intent('escapeRoom-Q2', (conv) => {
 app.intent('escapeRoom-Q3', (conv) => {
   if (question3Attempts == 0) {
     question3Attempts++;
+
+    let livessml = ``, lives = ``;
+    if (numberOfAttempts === 0) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui54.mp3?alt=media&amp;token=b3c41422-a03e-42a2-b063-1a05edd553c8">Zero</audio>`;
+    } else if (numberOfAttempts === 1) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui51.mp3?alt=media&amp;token=a1db6ba9-fbe5-42a1-9cef-91399a67bcda">One</audio>`;
+    } else if (numberOfAttempts === 2) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui52.mp3?alt=media&amp;token=db5853c6-a930-4b0c-ae51-26c99978f9a4">Two</audio>`;
+    }
+
+    livessml = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui55.mp3?alt=media&amp;token=2bf80ed6-fadb-42fc-abcc-ee8344acd455">You have</audio>` +
+      lives + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui56.mp3?alt=media&amp;token=d7b23bb4-fa27-436e-b85c-99d2ba5776eb">lives left</audio>`;
+
+
     const ssml =
       `<speak>
     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/contra.mp3?alt=media&amp;token=9526f7a2-8ce4-4772-ad46-62cba0971474"></audio>
     <break time="0.2" />
-    Yes, you are right. 96cm it is.
-    <break time="0.2" />
+    <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui62.mp3?alt=media&amp;token=b4bbeedd-d868-44ce-a883-48aeaee501ac">
+    Yes, you are Right.
+    96cm it is,
     Let's go to the final level to get out of this room.
-    In a moment, you will hear a morse code. Decode the code using the key provided on the table.
+    In a moment, you will hear a Morse code. Decode the code using the key provided on the table.
+    </audio>
     <break time="0.1" />
-    Remember you have only ${numberOfAttempts} lives left. One mistake can cause you your life.
+    ${livelssml} 
+    <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui63.mp3?alt=media&amp;token=f8b23ea4-0ef8-4748-a8a1-a8508b60698b">
+    One mistake can cause you your life.</audio>
     <break time="0.2" />
-    Here is the code:
-    dash dash dot <break time="0.3" /> dash dash dash
-    <break time="0.4" />
-    dash dash dot <break time="0.3" /> dot dash <break time="0.3" /> dash <break time="0.3" /> dash dash dash <break time="0.3" /> dot dash dot <break time="0.3" /> dot dot dot 
+    <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui64.mp3?alt=media&amp;token=98311cf1-b0ec-4536-a62e-49bca3ab098e">
+    Here is the code:</audio>
+    <break time="0.1" />
+
+    <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/quiz3.mp3?alt=media&amp;token=09566613-f665-4398-983b-fdb7591d6181">
+    dash dash dot, 
+    dash dash dash,
+
+    dash dash dot,
+    dot dash,
+    dash,
+    dash dash dash,
+    dot dash dot,
+    dot dot dot.
+    </audio>
     </speak>`;
     conv.ask(ssml);
   } else {
@@ -761,9 +790,10 @@ app.intent('escapeRoom-Q3', (conv) => {
       <speak>
       <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/movingWall1%20(mp3cut.net).mp3?alt=media&amp;token=bba62f22-a0b3-48f2-9bd4-25a16ca035a4">Moving Walls</audio>
       <break time="0.2" />
-      Wrong Answer!
+      <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui48.mp3?alt=media&amp;token=8bab9924-c0d9-45cb-92df-8faef556a2df">Wrong Answer!</audio>
       <break time="0.1" />
-      Hint: Get up and go.
+      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui66.mp3?alt=media&amp;token=1517bc26-17ea-4619-a3cc-83b630e4d7ef">
+      Hint: Get up and go.</audio>
       </speak>`;
       conv.ask(ssml);
     } else if (question3Attempts === 3) {
@@ -771,9 +801,10 @@ app.intent('escapeRoom-Q3', (conv) => {
       <speak>
       <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/movingWall1%20(mp3cut.net).mp3?alt=media&amp;token=bba62f22-a0b3-48f2-9bd4-25a16ca035a4">Moving Walls</audio>
       <break time="0.2" />
-      Wrong Answer!
+      <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui48.mp3?alt=media&amp;token=8bab9924-c0d9-45cb-92df-8faef556a2df">Wrong Answer!</audio>
       <break time="0.1" />
-      Hint: Chomp Chomp.
+      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui67.mp3?alt=media&amp;token=9cb94df2-2765-4beb-8dc1-a5ab4ae66dba">
+      Hint: Chomp Chomp.</audio>
       </speak>`;
       conv.ask(ssml);
     } else {
@@ -781,19 +812,45 @@ app.intent('escapeRoom-Q3', (conv) => {
       <speak>
       <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/movingWall1%20(mp3cut.net).mp3?alt=media&amp;token=bba62f22-a0b3-48f2-9bd4-25a16ca035a4">Moving Walls</audio>
       <break time="0.2" />
-      No more hints now for you. You are on your own.
+      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui68.mp3?alt=media&amp;token=c57230f5-31dc-4617-a85a-bf50eda22789">
+      No more hints now for you. You are on your own.</audio>
       </speak>`;
       conv.ask(ssml);
     }
 
+    let livessml = ``, lives = ``;
+    if (numberOfAttempts === 0) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui54.mp3?alt=media&amp;token=b3c41422-a03e-42a2-b063-1a05edd553c8">Zero</audio>`;
+    } else if (numberOfAttempts === 1) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui51.mp3?alt=media&amp;token=a1db6ba9-fbe5-42a1-9cef-91399a67bcda">One</audio>`;
+    } else if (numberOfAttempts === 2) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui52.mp3?alt=media&amp;token=db5853c6-a930-4b0c-ae51-26c99978f9a4">Two</audio>`;
+    }
+
+    livessml = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui55.mp3?alt=media&amp;token=2bf80ed6-fadb-42fc-abcc-ee8344acd455">You have</audio>` +
+      lives + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui56.mp3?alt=media&amp;token=d7b23bb4-fa27-436e-b85c-99d2ba5776eb">lives left</audio>`;
+
+
     const ssml =
       `<speak>
-   You have ${numberOfAttempts} lives left.
+    ${livessml}
    <break time="0.2" />
-    Here is the code:
-    dash dash dot <break time="0.3" /> dash dash dash
-    <break time="0.4" />
-    dash dash dot <break time="0.3" /> dot dash <break time="0.3" /> dash <break time="0.3" /> dash dash dash <break time="0.3" /> dot dash dot <break time="0.3" /> dot dot dot 
+   <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui64.mp3?alt=media&amp;token=98311cf1-b0ec-4536-a62e-49bca3ab098e">
+   Here is the code:</audio>
+   <break time="0.1" />
+
+   <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/quiz3.mp3?alt=media&amp;token=09566613-f665-4398-983b-fdb7591d6181">
+   dash dash dot, 
+   dash dash dash,
+
+   dash dash dot,
+   dot dash,
+   dash,
+   dash dash dash,
+   dot dash dot,
+   dot dot dot.
+   </audio>
+    
      </speak>`;
     conv.ask(ssml);
   }
