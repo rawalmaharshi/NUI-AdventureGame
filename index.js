@@ -59,7 +59,7 @@ app.intent("rollDie", conv => {
   let number = arr[Math.floor(Math.random() * arr.length)];
   arr = arr.filter(item => item != number);
 
-  number = 3;
+  number = 2;
   if (number === 3) {
     conv.followup("StartBeach");
   }
@@ -555,18 +555,21 @@ app.intent("startEscapeRoom", (conv, agent) => {
    You have rolled a 2.  
    <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/warpSound.mp3?alt=media&amp;token=1a5c3061-4b69-4a7f-a6ba-c9ab67c8ef06">Space Warp sound</audio> 
    <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/movingWall1%20(mp3cut.net).mp3?alt=media&amp;token=bba62f22-a0b3-48f2-9bd4-25a16ca035a4">Moving Walls</audio>
+   <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui46.mp3?alt=media&amp;token=8678a7cb-6878-4a73-821c-1ba49fe6aa0d">
    Looks like we are stuck in this room of doom.  
    See, what's written on the screen.  
    To get out of this room, you have 3 lives. 
    With every wrong attempt, the walls will move closer. 
    This sounds scary, we should get out of here quick. 
-     Here comes the first one: 
-     <break time="0.2" />
-   The one who built it, <break time="0.1" />sold it
-   <break time="0.3" />
-   The one who bought it, <break time="0.1" /> never used it
-   <break time="0.3" />
-   And the one who used it never saw it. <break time="0.1" /> What is it?
+   </audio>
+   <break time="0.3" /> 
+   <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui47.mp3?alt=media&amp;token=81056a6a-d5af-4cec-a0db-cff0f1929ce0">
+   Here comes the first one: </audio> 
+   <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/quiz1.mp3?alt=media&amp;token=755eec63-b08e-4d33-b558-0fd57aa89003">
+   The one who built it, sold it 
+   The one who bought it, never used it
+   And the one who used it never saw it. What is it?
+   </audio> 
      </speak>`;
     conv.ask(ssml);
   } else {
@@ -577,9 +580,9 @@ app.intent("startEscapeRoom", (conv, agent) => {
       <speak>
       <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/movingWall1%20(mp3cut.net).mp3?alt=media&amp;token=bba62f22-a0b3-48f2-9bd4-25a16ca035a4">Moving Walls</audio>
       <break time="0.2" />
-      Wrong Answer!
+      <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui48.mp3?alt=media&amp;token=8bab9924-c0d9-45cb-92df-8faef556a2df">Wrong Answer!</audio>
       <break time="0.1" />
-      Hint: It rhymes with coffee.
+      <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui49.mp3?alt=media&amp;token=f3d6cb8c-d503-4b87-86a1-ade4a24f68cc">Hint: It rhymes with coffee.</audio>
       </speak>
       `;
       conv.ask(ssml);
@@ -601,7 +604,8 @@ app.intent("startEscapeRoom", (conv, agent) => {
       <speak>
       <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/movingWall1%20(mp3cut.net).mp3?alt=media&amp;token=bba62f22-a0b3-48f2-9bd4-25a16ca035a4">Moving Walls</audio>
       <break time="0.2" />
-      Ahhh! I don't think you can survive this room of doom. Anyway, I'll give you your final hint. It is used in funeral ceremonies.
+      <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui50.mp3?alt=media&amp;token=0c0588ff-f521-4207-acd0-e12353105c9d">
+      I don't think you can survive this room of doom. Anyway, I'll give you your final hint. It is used in funeral ceremonies.</audio>
       </speak>
       `;
       conv.ask(ssml);
@@ -610,15 +614,26 @@ app.intent("startEscapeRoom", (conv, agent) => {
       conv.followup('gameOver');
     }
 
+    let livessml = ``, lives = ``;
+    if (numberOfAttempts === 0) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui54.mp3?alt=media&amp;token=b3c41422-a03e-42a2-b063-1a05edd553c8">Zero</audio>`;
+    } else if (numberOfAttempts === 1) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui51.mp3?alt=media&amp;token=a1db6ba9-fbe5-42a1-9cef-91399a67bcda">One</audio>`;
+    } else if (numberOfAttempts === 2) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui52.mp3?alt=media&amp;token=db5853c6-a930-4b0c-ae51-26c99978f9a4">Two</audio>`;
+    }
+
+    livessml = `<speak><audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui55.mp3?alt=media&amp;token=2bf80ed6-fadb-42fc-abcc-ee8344acd455">You have</audio>` +
+      lives + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui56.mp3?alt=media&amp;token=d7b23bb4-fa27-436e-b85c-99d2ba5776eb">lives left</audio></speak>`;
+    conv.ask(livessml);
     const ssml =
       `<speak>
-   You have ${numberOfAttempts} lives left
    <break time="0.2" />
-    The one who built it, <break time="0.1" />sold it
-   <break time="0.3" />
-   The one who bought it, <break time="0.1" /> never used it
-   <break time="0.3" />
-   And the one who used it never saw it. <break time="0.1" /> What is it?
+   <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/quiz1.mp3?alt=media&amp;token=755eec63-b08e-4d33-b558-0fd57aa89003">
+   The one who built it, sold it 
+   The one who bought it, never used it
+   And the one who used it never saw it. What is it?
+   </audio> 
      </speak>`;
     conv.ask(ssml);
   }
@@ -632,15 +647,18 @@ app.intent('escapeRoom-Q2', (conv) => {
       `<speak>
   <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/contra.mp3?alt=media&amp;token=9526f7a2-8ce4-4772-ad46-62cba0971474"></audio>
   <break time="0.2" />
+  <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui57.mp3?alt=media&amp;token=ade9a683-2b69-429e-ab74-360bf98b4479">
   Nice Work with the riddle. I hope you do not find the need to use a coffin.
-  <break time="0.2" />
   The second puzzle tests your mathematical prowess.
   What is the answer to:
+  </audio>
+  <break time="0.2" />
+  <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/quiz2.mp3?alt=media&amp;token=b8f65f6f-78bf-402e-9886-3a046b2e3b93">
   Jane, Allie, and Pat each planted a tree 90cm in height. By the time Jane's tree grew by 1cm, Ally's tree grew by 2cm.
-  <break time="0.2"/>
   By the time Ally's tree grew by 2cm, Pat's tree grew by 3cm.
-  <break time="0.3"/>
   How tall is Jane's tree when the height of Pat's tree is 108cm?
+  </audio>
+
   </speak>`;
     conv.ask(ssml);
   } else {
@@ -654,9 +672,9 @@ app.intent('escapeRoom-Q2', (conv) => {
       <speak>
       <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/movingWall1%20(mp3cut.net).mp3?alt=media&amp;token=bba62f22-a0b3-48f2-9bd4-25a16ca035a4">Moving Walls</audio>
       <break time="0.2" />
-      Wrong Answer!
+      <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui48.mp3?alt=media&amp;token=8bab9924-c0d9-45cb-92df-8faef556a2df">Wrong Answer!</audio>
       <break time="0.1" />
-      Hint: It is simple linear algebra. Take a pen and do the math on your hand.
+      <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui59.mp3?alt=media&amp;token=e46c00ef-5a63-42df-8a15-7549f5da148d">Hint: It is simple linear algebra. Take a pen and do the math on your hand.</audio>
       </speak>
       `;
       conv.ask(ssml);
@@ -665,7 +683,8 @@ app.intent('escapeRoom-Q2', (conv) => {
       <speak>
       <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/movingWall1%20(mp3cut.net).mp3?alt=media&amp;token=bba62f22-a0b3-48f2-9bd4-25a16ca035a4">Moving Walls</audio>
       <break time="0.2" />
-      Ahhh! I don't think you can survive this room of doom. <break time = "0.2" /> Anyway, its an anagram of 69.
+      <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui60.mp3?alt=media&amp;token=98e6239c-204f-44ff-ab53-8afb2433dce6">
+      I don't think you can survive this room of doom. Anyway, its an anagram of 69.</audio>
       </speak>
       `;
       conv.ask(ssml);
@@ -674,23 +693,35 @@ app.intent('escapeRoom-Q2', (conv) => {
       <speak>
       <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/movingWall1%20(mp3cut.net).mp3?alt=media&amp;token=bba62f22-a0b3-48f2-9bd4-25a16ca035a4">Moving Walls</audio>
       <break time="0.2" />
-      Wrong Answer!
+      <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui48.mp3?alt=media&amp;token=8bab9924-c0d9-45cb-92df-8faef556a2df">Wrong Answer!</audio>
       <break time="0.1" />
-      Hint: The answer is 96cm. Now you do not have any lives left. If you want to escape this room, you are on your own!
+      <audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui61.mp3?alt=media&amp;token=e9f72f4a-659c-4c5b-a6cb-568edf421b6c">
+      Hint: The answer is 96cm. Now you do not have any lives left. If you want to escape this room, you are on your own!</audio>
       </speak>
       `;
       conv.ask(ssml);
     }
 
+    let livessml = ``, lives = ``;
+    if (numberOfAttempts === 0) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui54.mp3?alt=media&amp;token=b3c41422-a03e-42a2-b063-1a05edd553c8">Zero</audio>`;
+    } else if (numberOfAttempts === 1) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui51.mp3?alt=media&amp;token=a1db6ba9-fbe5-42a1-9cef-91399a67bcda">One</audio>`;
+    } else if (numberOfAttempts === 2) {
+      lives = `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui52.mp3?alt=media&amp;token=db5853c6-a930-4b0c-ae51-26c99978f9a4">Two</audio>`;
+    }
+
+    livessml = `<speak><audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui55.mp3?alt=media&amp;token=2bf80ed6-fadb-42fc-abcc-ee8344acd455">You have</audio>` +
+      lives + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui56.mp3?alt=media&amp;token=d7b23bb4-fa27-436e-b85c-99d2ba5776eb">lives left</audio></speak>`;
+    conv.ask(livessml);
     const ssml =
       `<speak>
-   You have ${numberOfAttempts} lives left
    <break time="0.2" />
-   Jane, Allie, and Pat each planted a tree 90cm in height. By the time Jane's tree grew by 1cm, Ally's tree grew by 2cm.
-   <break time="0.1"/>
-   By the time Ally's tree grew by 2cm, Pat's tree grew by 3cm.
-   <break time="0.2"/>
-   How tall is Jane's tree when the height of Pat's tree is 108cm?
+   <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/quiz2.mp3?alt=media&amp;token=b8f65f6f-78bf-402e-9886-3a046b2e3b93">
+  Jane, Allie, and Pat each planted a tree 90cm in height. By the time Jane's tree grew by 1cm, Ally's tree grew by 2cm.
+  By the time Ally's tree grew by 2cm, Pat's tree grew by 3cm.
+  How tall is Jane's tree when the height of Pat's tree is 108cm?
+  </audio>
      </speak>`;
     conv.ask(ssml);
   }
