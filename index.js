@@ -46,7 +46,10 @@ process.env.DEBUG = "dialogflow:debug";
 app.intent("Default Welcome Intent", conv => {
   resetGameState();
   const ssml =
-    `<speak><audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/WelcomeIntent.mp3?alt=media&amp;token=3c874054-31ba-4e68-b53c-3f66cd23f5cb" clipBegin="0s" clipEnd="5s">Welcome!!</audio> Hey, hi there! What is your name ?</speak>`;
+    `<speak>
+    <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/WelcomeIntent.mp3?alt=media&amp;token=3c874054-31ba-4e68-b53c-3f66cd23f5cb" clipBegin="0s" clipEnd="5s">
+    Welcome!!</audio> Hey, hi there! What is your name ?
+    </speak>`;
   conv.ask(ssml);
 
 });
@@ -75,10 +78,19 @@ app.intent("islandNorth", conv => {
   conv.ask(ssml);
 
   if (boxOpen) {
-    conv.ask(`There is nothing but only the empty box. 
-  Which direction should we go now?`);
+    const ssml =
+      "<speak>" +
+      `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui6.mp3?alt=media&amp;token=7c635236-2a03-490a-8808-17e8f37fadb3">There is nothing but only the empty box. 
+    Which direction should we go now?</audio>` +
+      "</speak>";
+    conv.ask(ssml);
+
   } else {
-    conv.ask(`Look there is a wooden box here. What should we do?`);
+    const ssml =
+      "<speak>" +
+      `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui7.mp3?alt=media&amp;token=74c46c34-b59c-4c51-b599-c6e4900ccf88">Look there is a wooden box here. What should we do?</audio>` +
+      "</speak>";
+    conv.ask(ssml);
   }
 });
 
@@ -90,12 +102,15 @@ app.intent("islandNorthOpenBox", conv => {
     const ssml =
       "<speak>" +
       '<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/wooden-box.mp3?alt=media&amp;token=5f0f1ef0-8b60-4593-92b0-ff2de8ea351f">foot steps on sand</audio>' +
+      `audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui8.mp3?alt=media&amp;token=13345792-492f-47ec-8533-47fffeb88748">Look. There is an axe inside. I'll pick it up. Where should we go now?</audio>` +
       "</speak>";
     conv.ask(ssml);
-    conv.ask(`Look. There is an axe inside. I'll pick it up. Where should we go now?`);
   } else {
-    conv.ask(`Ohh, it seems the box is not opening. 
-    Maybe we should explore some other way. Which direction should we go to now?`);
+    const ssml = `<speak>` +
+      `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui9.mp3?alt=media&amp;token=fc51765b-84d2-420b-afb2-e511d43801cd">Ohh, it seems the box is not opening. 
+     Maybe we should explore some other way. Which direction should we go to now?</audio>` +
+      `</speak>`
+    conv.ask(ssml);
   }
 
   console.log("IN the islandNorthOpenBox webhook" + JSON.stringify(conv));
@@ -113,18 +128,18 @@ app.intent("islandEast", conv => {
   if (!thingsWeHave.rope) {
     const ssml2 =
       "<speak>" +
-      '<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/moneky2.mp3?alt=media&amp;token=b4aa024c-e4b7-412e-894c-12559d7fc47e">monkey screaming</audio> Oh there is nothing here apart from the monkey on the tree.  What should we do, Should we do something or go in some other direction?' +
+      `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/moneky2.mp3?alt=media&amp;token=b4aa024c-e4b7-412e-894c-12559d7fc47e">monkey screaming</audio>` +
+      `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui10.mp3?alt=media&amp;token=db6debfa-483e-4229-8e35-301833d30bf5">Oh there is nothing here apart from the monkey on the tree.  What should we do, Should we do something or go in some other direction?</audio>` +
       "</speak>";
     conv.ask(ssml2);
   } else {
     const ssml2 =
       "<speak>" +
-      '<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/moneky2.mp3?alt=media&amp;token=b4aa024c-e4b7-412e-894c-12559d7fc47e">monkey screaming</audio> Oh there is nothing here apart from the monkey on the tree.' +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/moneky2.mp3?alt=media&amp;token=b4aa024c-e4b7-412e-894c-12559d7fc47e">monkey screaming</audio>` +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui10b.mp3?alt=media&amp;token=a270ef6f-fbc8-4251-89ac-3d3b3476274c">Oh there is nothing here apart from the monkey on the tree.</audio>` +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui11.mp3?alt=media&amp;token=13c3afce-8766-4a04-a484-8c03734afdba">The monkey gave us the rope, there's nothing here to find, maybe we should explore other directions and scavange other things</audio>` +
       "</speak>";
     conv.ask(ssml2);
-    conv.ask(
-      `The monkey gave us the rope, there's nothing here to find, maybe we should explore other directions and scavange other things`
-    );
   }
 });
 
@@ -132,7 +147,8 @@ app.intent("islandEast-pickUpCrowBar", conv => {
   thingsWeHave.crowbar = true;
   const ssml =
     "<speak>" +
-    '<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/picking_crowbar.mp3?alt=media&amp;token=fc77180b-4175-46ab-90bf-524b2e8ee427">picking up crowbar </audio> Here,  I got the crowbar, lets explore some other direction. Which direction should we go now?' +
+    `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/picking_crowbar.mp3?alt=media&amp;token=fc77180b-4175-46ab-90bf-524b2e8ee427">picking up crowbar </audio> ` +
+    `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui12.mp3?alt=media&amp;token=d8a59830-f480-4481-8670-09199d44611b">Here,  I got the crowbar, lets explore some other direction. Which direction should we go now?</audio> ` +
     "</speak>";
   conv.ask(ssml);
 
@@ -144,13 +160,15 @@ app.intent("islandEast-Givebanana", conv => {
     thingsWeHave.rope = true;
     const ssml =
       "<speak>" +
-      '<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/moneky2.mp3?alt=media&amp;token=b4aa024c-e4b7-412e-894c-12559d7fc47e">monkey screaming</audio> Hey, look what the monkey gave us, a rope, I bet this will come in handy on the boat, What should we do now?  Go back to the boat?' +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/moneky2.mp3?alt=media&amp;token=b4aa024c-e4b7-412e-894c-12559d7fc47e">monkey screaming</audio> ` +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui13.mp3?alt=media&amp;token=2cfae69e-b875-46f9-8f67-1929e2654fe8">Hey, look what the monkey gave us, a rope, I bet this will come in handy on the boat, What should we do now?  Go back to the boat?</audio>` +
       "</speak>";
     conv.ask(ssml);
   } else {
     const ssml =
       "<speak>" +
-      '<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/moneky2.mp3?alt=media&amp;token=b4aa024c-e4b7-412e-894c-12559d7fc47e">monkey screaming </audio> But we dont have anything to offer the monkey with, What should we do?' +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/moneky2.mp3?alt=media&amp;token=b4aa024c-e4b7-412e-894c-12559d7fc47e">monkey screaming </audio> ` +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui14.mp3?alt=media&amp;token=17f10c3b-5267-485b-bb0a-252967ee22ba">But we dont have anything to offer the monkey with, What should we do? </audio> ` +
       "</speak>";
     conv.ask(ssml);
   }
@@ -165,21 +183,18 @@ app.intent("islandWest", conv => {
 
     const ssml =
       "<speak>" +
-      '<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/running_on_sand-%5BAudioTrimmer.com%5D.mp3?alt=media&amp;token=e5897db9-5527-4c41-8033-dc02521ab58f "> steps sound</audio>' +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/running_on_sand-%5BAudioTrimmer.com%5D.mp3?alt=media&amp;token=e5897db9-5527-4c41-8033-dc02521ab58f">steps sound</audio>` +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui15.mp3?alt=media&amp;token=2b32e719-c18a-4e66-b982-a6a5ca9fd8f4">we just picked the crowbar from this spot, there is nothing here apart from the banana tree, what should we do?</audio>` +
       "</speak>";
-    conv.ask(
-      `we just picked the crowbar from this spot, there is nothing here apart from the banana tree, what should we do?`
-    );
+    conv.ask(ssml);
   } else {
     const ssml =
       "<speak>" +
-      '<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/running_on_sand-%5BAudioTrimmer.com%5D.mp3?alt=media&amp;token=e5897db9-5527-4c41-8033-dc02521ab58f "> steps sound</audio>' +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/running_on_sand-%5BAudioTrimmer.com%5D.mp3?alt=media&amp;token=e5897db9-5527-4c41-8033-dc02521ab58f">steps sound</audio>` +
+      `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui16.mp3?alt=media&amp;token=6db37fd2-dd3e-4456-af72-ec89d934c96a">Look, here is a crowbar lying under the banana tree I wonder if we can do something with this? Or should we go somewhere else?</audio>` +
       "</speak>";
-    conv.ask(
-      `Look, here is a crowbar lying under the banana tree I wonder if we can do something with these? Or should we go somewhere else?`
-    );
+    conv.ask(ssml);
   }
-
 
   console.log("IN the islandEast-pickUpCrowBar webhook" + JSON.stringify(conv));
 });
@@ -189,7 +204,8 @@ app.intent("islandWest-shakeTree", conv => {
   thingsWeHave.banana = true;
   const ssml =
     "<speak>" +
-    '<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/shaking_tree.mp3?alt=media&amp;token=9e2099b7-910a-4e67-a825-69cc44801848">shaking the tree </audio> I got the banana, what should we do with this now ?' +
+    `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/shaking_tree.mp3?alt=media&amp;token=9e2099b7-910a-4e67-a825-69cc44801848">shaking the tree </audio>` +
+    `<audio src = "https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui17.mp3?alt=media&amp;token=97ceda14-d8e8-49b3-8452-1e619d064657">I got the banana, what should we do with this now ?</audio>` +
     "</speak>";
   conv.ask(ssml);
 
@@ -202,15 +218,18 @@ app.intent("islandWest-cutTree", conv => {
     const ssml =
       `<speak>
      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/tree-cutting.mp3?alt=media&amp;token=b7d8e46a-9086-4f96-9640-c3143df27e23">cutting the tree</audio>
-       <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/tree-falling-on-ground.mp3?alt=media&amp;token=06b269cb-5cde-4818-845f-12fe457773a8">tree fell down</audio> 
-     Good job cutting the tree down, this wood will come in handy to fix the holes in the boat.
-     Where do we head next?
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/tree-falling-on-ground.mp3?alt=media&amp;token=06b269cb-5cde-4818-845f-12fe457773a8">tree fell down</audio> 
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui18.mp3?alt=media&amp;token=99ef592f-3138-4804-9b1b-e5deb21b6aa3">Good job cutting the tree down, this wood will come in handy to fix the holes in the boat.
+     Where do we head next?</audio> 
        </speak>`;
     conv.ask(ssml);
   } else {
-    conv.ask(
-      `But we have nothing to cut the tree with,   maybe we should find that first?`
-    );
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui19.mp3?alt=media&amp;token=5c6f4cf4-dc85-4a09-a569-80b64e7f7c7c">
+     But we have nothing to cut the tree with, maybe we should find that first?</audio> 
+       </speak>`;
+    conv.ask(ssml);
   }
 
 
@@ -223,7 +242,12 @@ app.intent('atBoat', (conv) => {
     gameStatus = 'startIsland';
     conv.followup('shouldWePlayEvent');
   } else {
-    conv.ask(`We  need some things to fix the boat. Lets explore the island and salvage some things. Which direction should we go?`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui20.mp3?alt=media&amp;token=6d5d9ea4-f2cb-4d59-8f19-17bc7047b13c">
+     We  need some things to fix the boat. Lets explore the island and salvage some things. Which direction should we go?</audio> 
+       </speak>`;
+    conv.ask(ssml);
   }
 });
 
@@ -260,84 +284,183 @@ app.intent('islandNorth - fallback', (conv) => {
     conv.data.fallbackCount++;
     // Adjust the fallback response according to the error count.
     if (conv.data.fallbackCount === 1) {
-      return conv.ask('Sorry, I am not sure this is working, What should we do with this box, or do you want to explore some other direction?');
+      const ssml =
+        `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui21.mp3?alt=media&amp;token=853099a6-d75c-4d05-a767-a982058d6b65">
+     Sorry, I am not sure this is working, What should we do with this box, or do you want to explore some other direction?</audio> 
+       </speak>`;
+      return conv.ask(ssml);
     } else if (conv.data.fallbackCount === 2) {
-      return conv.ask(`Sorry, I didn't get it. What do you wanna do?`);
+      const ssml =
+        `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui22.mp3?alt=media&amp;token=7f9d3520-0a8d-46b8-9d02-cb7f3fdc1af3">
+     Sorry, I didn't get it. What do you wanna do?</audio> 
+       </speak>`;
+      return conv.ask(ssml);
     } else if (conv.data.fallbackCount === 3) {
       // If 'fallbackCount' is greater than 2, send out the final message and terminate the conversation.
-      return conv.ask(`Sorry, I didn't get it. maybe we should try and go back to the boat`);
+      const ssml =
+        `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui23.mp3?alt=media&amp;token=73391125-0c8c-47e4-8be8-e9454b90a3f1">
+     Sorry, I didn't get it. maybe we should try and go back to the boat</audio> 
+       </speak>`;
+      return conv.ask(ssml);
     } else {
-      return conv.close(`This seems to be beyond our expertise. It seems it is game over`);
+      const ssml =
+        `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui24.mp3?alt=media&amp;token=c747190d-9657-4dbf-a9b3-58b584827880">
+     This seems to be beyond our expertise. It seems it is game over</audio> 
+       </speak>`;
+      return conv.close(ssml);
     }
   } else {
-    return conv.ask(`There is nothing but only the empty box. 
-  Which direction should we go now?`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui25.mp3?alt=media&amp;token=acc8c623-fefe-4730-bf55-de0fea762b37">
+     There is nothing but only the empty box. 
+  Which direction should we go now?</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   }
 
 });
 
 app.intent('islandNorthOpenBox - fallback', (conv) => {
-  return conv.ask(`You already opened the box. Which direction should we go now?`);
+  const ssml =
+    `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui26.mp3?alt=media&amp;token=39b98e38-d4c7-48e9-9b63-bbceac324d73">
+     You already opened the box. Which direction should we go now?</audio> 
+       </speak>`;
+  return conv.ask(ssml);
 });
 
 app.intent('islandWest - fallback', (conv) => {
   if (!thingsWeHave.crowbar) {
-    return conv.ask(`Hint: the crowbar might be useful`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui27.mp3?alt=media&amp;token=9203ee68-7991-46d8-9a27-56fd8ee38573">
+     Hint: the crowbar might be useful</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   }
 
   if (!thingsWeHave.banana) {
-    return conv.ask(`Hint: You might want to shake things up!`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui28.mp3?alt=media&amp;token=a238d097-3c57-43fc-a7e6-1d4575d76227">
+     Hint: You might want to shake things up!</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   }
 
   if (thingsWeHave.axe) {
-    return conv.ask(`Hint: You might need some wood to repair the boat. Want to use your axe?`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui45.mp3?alt=media&amp;token=98193597-0b2b-48e6-898a-46adae7303e4">
+     Hint: You might need some wood to repair the boat. Want to use your axe?</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   }
 
-  return conv.ask(`I am sorry! I cannot help you. Which direction do you want to go?`);
+  const ssml =
+    `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui29.mp3?alt=media&amp;token=22bad442-02a6-42ca-9396-d262ebb6694f">
+     I am sorry! I cannot help you. Which direction do you want to go?</audio> 
+       </speak>`;
+  return conv.ask(ssml);
 });
 
 app.intent('islandEast-pickUpCrowBar - fallback', (conv) => {
 
   if (!thingsWeHave.banana) {
-    return conv.ask(`Hint: You might want to shake things up!`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui28.mp3?alt=media&amp;token=a238d097-3c57-43fc-a7e6-1d4575d76227">
+     Hint: You might want to shake things up!</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   }
 
-  return conv.ask(`Hint: You might need some wood to repair the boat. Want to use your axe?`);
+  const ssml =
+    `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui45.mp3?alt=media&amp;token=98193597-0b2b-48e6-898a-46adae7303e4">
+     Hint: You might need some wood to repair the boat. Want to use your axe?</audio> 
+       </speak>`;
+  return conv.ask(ssml);
 });
 
 app.intent('islandWest-shakeTree - fallback', (conv) => {
 
   if (!thingsWeHave.crowbar) {
-    return conv.ask(`Hint: the crowbar might be useful`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui27.mp3?alt=media&amp;token=9203ee68-7991-46d8-9a27-56fd8ee38573">
+     Hint: the crowbar might be useful</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   }
 
   if (thingsWeHave.axe) {
-    return conv.ask(`Hint: You might need some wood to repair the boat. Want to use your axe?`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui45.mp3?alt=media&amp;token=98193597-0b2b-48e6-898a-46adae7303e4">
+     Hint: You might need some wood to repair the boat. Want to use your axe?</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   }
 
-  return conv.ask(`I am sorry! I cannot help you. Which direction do you want to go?`);
+  const ssml =
+    `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui29.mp3?alt=media&amp;token=22bad442-02a6-42ca-9396-d262ebb6694f">
+     I am sorry! I cannot help you. Which direction do you want to go?</audio> 
+       </speak>`;
+  return conv.ask(ssml);
 });
 
 app.intent('islandWest-cutTree - fallback', (conv) => {
 
   if (!thingsWeHave.banana) {
-    return conv.ask(`Hint: You might want to shake things up!`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui28.mp3?alt=media&amp;token=a238d097-3c57-43fc-a7e6-1d4575d76227">
+     Hint: You might want to shake things up!</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   }
-
-  return conv.ask(`I cannot help you. You should look elsewhere. Which direction do you want to go?`);
+  const ssml =
+    `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui29.mp3?alt=media&amp;token=22bad442-02a6-42ca-9396-d262ebb6694f">
+     I cannot help you. You should look elsewhere. Which direction do you want to go?</audio> 
+       </speak>`;
+  return conv.ask(ssml);
 });
 
 app.intent('islandEast - fallback', (conv) => {
   if (!thingsWeHave.banana) {
-    return conv.ask(`Hint: You might need something for the monkey`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui30.mp3?alt=media&amp;token=fb9c0baa-f73d-4e0d-a6af-19118de4ee00">
+     Hint: You might need something for the monkey</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   } else {
-    return conv.ask(`Hint: You might want to trade stuffs with monkey`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui31.mp3?alt=media&amp;token=12e25439-869a-4f8e-835d-5484bfb988d2">
+     Hint: You might want to trade stuffs with monkey</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   }
 });
 
 app.intent('islandEast-Givebanana - fallback', (conv) => {
   if (thingsWeHave.rope) {
-    return conv.ask(`You can look somewhere else or go back to the boat. Which direction to go now?`);
+    const ssml =
+      `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui29.mp3?alt=media&amp;token=22bad442-02a6-42ca-9396-d262ebb6694f">
+     I cannot help you. You should look elsewhere. Which direction do you want to go?</audio> 
+       </speak>`;
+    return conv.ask(ssml);
   }
 });
 
@@ -345,23 +468,30 @@ app.intent('whatDoWehave', (conv) => {
   var result = ``;
 
   if (!thingsWeHave.axe && !thingsWeHave.banana && !thingsWeHave.crowbar && !thingsWeHave.rope && !thingsWeHave.wood) {
-    result = result + `We currently do not have anything with us`;
+    result = result + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui33.mp3?alt=media&amp;token=c1cd25b9-ae22-43b3-b6d7-495cf58c7f92">
+    We currently do not have anything with us</audio>` ;
   } else {
-    result = result + `We currently have. `;
+    result = result + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui34.mp3?alt=media&amp;token=328d5886-c711-437b-804c-8236f017f6e6">
+    We currently have</audio>` ;
     if (thingsWeHave.axe) {
-      result = result + ` an axe, `;
+      result = result + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui35.mp3?alt=media&amp;token=30fbf6c8-0a93-4a24-904d-b9e3ff893d52">
+    an axe, </audio>` ;
     }
     if (thingsWeHave.rope) {
-      result = result + ` a rope, `;
+      result = result + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui36mp3.mp3?alt=media&amp;token=fe131fa4-cc6f-4c04-9a4b-88ad460535fe">
+      a rope, </audio>` ;
     }
     if (thingsWeHave.banana) {
-      result = result + ` some bananas, `;
+      result = result + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui37.mp3?alt=media&amp;token=7b057900-70fa-4709-bade-97263fec9adc">
+      some bananas, </audio>` ;
     }
     if (thingsWeHave.crowbar) {
-      result = result + ` a crowbar, `;
+      result = result + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui38.mp3?alt=media&amp;token=90bbfdeb-f5cc-4b72-8d2b-ce6838ba17e6">
+      a crowbar, </audio>` ;
     }
     if (thingsWeHave.wood) {
-      result = result + ` some wooden logs, `
+      result = result + `<audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui39.mp3?alt=media&amp;token=d406bb0e-f410-44f7-8a07-5503740c49bc">
+      some wooden logs, </audio>` ;
     }
   }
   const ssml = `<speak>` + result + `</speak>`;
@@ -371,15 +501,46 @@ app.intent('whatDoWehave', (conv) => {
 app.intent('whereAmIIsland', (conv) => {
 
   switch (currentDirection) {
-    case 1: conv.ask(`We are currently next to the boat which we found at the southern tip of the island`);
+    case 1:
+      const ssml =
+        `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui40.mp3?alt=media&amp;token=c89de4ed-d980-4291-b306-bbe435690bf5">
+     We are currently next to the boat which we found at the southern tip of the island</audio> 
+       </speak>`;
+      conv.ask(ssml);
       break;
-    case 2: conv.ask(`We are currently in the eastern end of the island, We found the monkey here`);
+    case 2:
+      const ssml =
+        `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui41.mp3?alt=media&amp;token=24dca861-42c3-4bab-ad73-016a0fa7ab65">
+     We are currently in the eastern end of the island, We found the monkey here</audio> 
+       </speak>`;
+      conv.ask(ssml);
+      conv.ask(`We are currently in the eastern end of the island, We found the monkey here`);
       break;
-    case 3: conv.ask(`We are the northern side of the island where we found the wooden box`);
+    case 3:
+      const ssml =
+        `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui42.mp3?alt=media&amp;token=f56507fd-9205-4794-ab43-097a2189fe18">
+     We are the northern side of the island where we found the wooden box</audio> 
+       </speak>`;
+      conv.ask(ssml);
       break;
-    case 4: conv.ask(`We are currently on the western side of the island where we found the banana trees`);
+    case 4:
+      const ssml =
+        `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui43.mp3?alt=media&amp;token=d8d8b20e-867e-420d-9b16-1cc57a7fea89">
+     We are currently on the western side of the island where we found the banana trees</audio> 
+       </speak>`;
+      conv.ask(ssml);
       break;
-    default: conv.ask(`Seems like we are lost on this island, We should choose a direction and explore it. Where should we go?`);
+    default:
+      const ssml =
+        `<speak>
+     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui44.mp3?alt=media&amp;token=dc615a54-6073-4502-bc67-d2603a137664">
+     Seems like we are lost on this island, We should choose a direction and explore it. Where should we go?</audio> 
+       </speak>`;
+      conv.ask(ssml);
   }
 });
 
