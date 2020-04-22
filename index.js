@@ -55,11 +55,19 @@ function resetGameState() {
 }
 
 process.env.DEBUG = "dialogflow:debug";
+
 /**
- * Resets the game state
- * @returns {void}
+ * Callback for Default Welcome Intent.
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("Default Welcome Intent", (conv) => {
+
+/**
+ * Default welcome Intent - Starts the Gameplay
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let defaultWelcomeIntent = app.intent("Default Welcome Intent", (conv) => {
   resetGameState();
   const ssml = `<speak>
     <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/WelcomeIntent.mp3?alt=media&amp;token=3c874054-31ba-4e68-b53c-3f66cd23f5cb" clipBegin="0s" clipEnd="5s">
@@ -68,7 +76,18 @@ app.intent("Default Welcome Intent", (conv) => {
   conv.ask(ssml);
 });
 
-app.intent("rollDie", (conv) => {
+/**
+ * Callback for rollDie Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
+ */
+
+/**
+ * Roll Die - Takes the game into either of the two scenarios 
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let rollDie = app.intent("rollDie", (conv) => {
   console.log("IN the webhook" + JSON.stringify(conv));
   let number = arr[Math.floor(Math.random() * arr.length)];
   arr = arr.filter((item) => item != number);
@@ -82,12 +101,18 @@ app.intent("rollDie", (conv) => {
   }
 });
 
-/**
- * Function that handles the 'islandNorth' intent when the player is at the North direction
- * @param {String} "islandNorth" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ /**
+ * Callback for Island North Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandNorth", (conv) => {
+
+/**
+ * Island North Intent - When the player is at the North direction
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let islandNorthIntent = app.intent("islandNorth", (conv) => {
   currentDirection = 3;
   const ssml =
     "<speak>" +
@@ -110,12 +135,19 @@ app.intent("islandNorth", (conv) => {
     conv.ask(ssml);
   }
 });
-/**
- * Function that handles the 'islandNorthOpenBox' intent when the player is at the North direction and trying to open the box
- * @param {String} "islandNorthOpenBox" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+
+ /**
+ * Callback for Island North Intent - Open Box
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandNorthOpenBox", (conv) => {
+
+/**
+ * Island North Intent - When the player is at the North direction and tries to open the box
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let islandNorthBoxOpen = app.intent("islandNorthOpenBox", (conv) => {
   if (thingsWeHave.hasCrowbar) {
     boxOpen = true;
     thingsWeHave.hasAxe = true;
@@ -134,12 +166,19 @@ app.intent("islandNorthOpenBox", (conv) => {
     conv.ask(ssml);
   }
 });
+
 /**
- * Function that handles the 'islandEast' intent when the player is at the East direction
- * @param {String} "islandEast" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island East Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandEast", (conv) => {
+
+/**
+ * Island East Intent - When the player is at the East direction
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandEast = app.intent("islandEast", (conv) => {
   currentDirection = 2;
   const ssml =
     "<speak>" +
@@ -164,12 +203,19 @@ app.intent("islandEast", (conv) => {
     conv.ask(ssml2);
   }
 });
+
 /**
- * Function that handles the 'islandEast-pickUpCrowBar' intent when the player is at East and picks up crowbar
- * @param {String} "islandEast-pickUpCrowBar" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island East Pickup Crowbar Intent 
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandEast-pickUpCrowBar", (conv) => {
+
+/**
+ * Island East Pickup Crowbar Intent - When the player is at the East direction and picks up the crowbar
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandEastPickUpCrowbar = app.intent("islandEast-pickUpCrowBar", (conv) => {
   thingsWeHave.hasCrowbar = true;
   const ssml =
     "<speak>" +
@@ -180,12 +226,19 @@ app.intent("islandEast-pickUpCrowBar", (conv) => {
 
   console.log("IN the islandEast-pickUpCrowBar webhook" + JSON.stringify(conv));
 });
+
 /**
- * Function that handles the 'islandEast-Givebanana' intent when the player is at East and gives banana to monkey
- * @param {String} "islandEast-Givebanana" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island East - Give Banana Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandEast-Givebanana", (conv) => {
+
+/**
+ * Island East - Give Banana Intent - When the player is at East and gives banana to monkey
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandEastGiveBanana = app.intent("islandEast-Givebanana", (conv) => {
   if (thingsWeHave.banana) {
     thingsWeHave.rope = true;
     const ssml =
@@ -204,12 +257,19 @@ app.intent("islandEast-Givebanana", (conv) => {
   }
   console.log("IN the islandEast-Givebanana webhook" + JSON.stringify(conv));
 });
+
 /**
- * Function that handles the 'islandWest' intent when the player is at West Direction
- * @param {String} "islandWest" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island West
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandWest", (conv) => {
+
+/**
+ * Island West - When the player is at West Direction
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandWest = app.intent("islandWest", (conv) => {
   currentDirection = 4;
   if (thingsWeHave.hasCrowbar) {
     const ssml =
@@ -229,12 +289,19 @@ app.intent("islandWest", (conv) => {
 
   console.log("IN the islandEast-pickUpCrowBar webhook" + JSON.stringify(conv));
 });
+
 /**
- * Function that handles the 'islandWest-shakeTree' intent when the player is at West and player tries to shake the tree
- * @param {String} "islandWest-shakeTree" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island West - Shake Tree Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandWest-shakeTree", (conv) => {
+
+/**
+ * Island West - When the player is at West and player tries to shake the tree to get bananas
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandWestShakeTree = app.intent("islandWest-shakeTree", (conv) => {
   thingsWeHave.banana = true;
   const ssml =
     "<speak>" +
@@ -245,12 +312,19 @@ app.intent("islandWest-shakeTree", (conv) => {
 
   console.log("IN the islandEast-pickUpCrowBar webhook" + JSON.stringify(conv));
 });
+
 /**
- * Function that handles the 'islandWest-cutTree' intent when the player is at West and player tries to cut the tree
- * @param {String} "islandWest-cutTree" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island West - Cut Tree 
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandWest-cutTree", (conv) => {
+
+/**
+ * Island West - Cut Tree - When the player is at West and player tries to cut the tree.
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandWestCutTree = app.intent("islandWest-cutTree", (conv) => {
   if (thingsWeHave.hasAxe) {
     thingsWeHave.hasWood = true;
     const ssml = `<speak>
@@ -270,12 +344,19 @@ app.intent("islandWest-cutTree", (conv) => {
 
   console.log("IN the islandEast-pickUpCrowBar webhook" + JSON.stringify(conv));
 });
+
 /**
- * Function that handles the 'atBoat' intent when the player returns to the boat
- * @param {String} "atBoat" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for AtBoat Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("atBoat", (conv) => {
+
+/**
+ * AtBoat Intent - When the player reaches the island game scenario
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let atBoat = app.intent("atBoat", (conv) => {
   currentDirection = 1;
   if (thingsWeHave.hasWood && thingsWeHave.rope && thingsWeHave.hasAxe) {
     gameStatus = "startIsland";
@@ -288,12 +369,19 @@ app.intent("atBoat", (conv) => {
     conv.ask(ssml);
   }
 });
+
 /**
- * Function that handles the 'shouldWePlay' intent when the player returns to the boat
- * @param {String} "shouldWePlay" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island West - Cut Tree 
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("shouldWePlay", (conv) => {
+
+/**
+ * shouldWePlay Intent - Google Home assistant asks the player whether they want to play
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let shouldWePlay = app.intent("shouldWePlay", (conv) => {
   // if (arr.length === 0) {
   //   conv.followup('gameOverIntent');
   // }
@@ -311,12 +399,19 @@ app.intent("shouldWePlay", (conv) => {
     conv.ask(ssml);
   }
 });
+
 /**
- * Function that handles the 'islandNorth - fallback' fallback intent when the user tries to ask for hint or when there is a misrecognition
- * @param {String} "islandNorth - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island North Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandNorth - fallback", (conv) => {
+
+/**
+ * Island North Fallback Intent - Fallback intent when the player tries to ask for hint or when there is a misrecognition
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandNorthFallback = app.intent("islandNorth - fallback", (conv) => {
   if (!boxOpen) {
     // If 'fallbackCount' doesn't exist, create it and set the value to 0.
     if (!conv.data.fallbackCount) {
@@ -360,24 +455,38 @@ app.intent("islandNorth - fallback", (conv) => {
     return conv.ask(ssml);
   }
 });
+
 /**
- * Function that handles the 'islandNorthOpenBox - fallback' fallback intent when the user tries to ask for hint or when there is a misrecognition
- * @param {String} "islandNorthOpenBox - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island North Box Open Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandNorthOpenBox - fallback", (conv) => {
+
+/**
+ * Island North Box Open Fallback Intent - When the player is at the North Direction and tries to ask for hint or when there is a misrecognition
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandNorthOpenBoxFallback = app.intent("islandNorthOpenBox - fallback", (conv) => {
   const ssml = `<speak>
      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui26.mp3?alt=media&amp;token=39b98e38-d4c7-48e9-9b63-bbceac324d73">
      You already opened the box. Which direction should we go now?</audio> 
        </speak>`;
   return conv.ask(ssml);
 });
+
 /**
- * Function that handles the 'islandWest - fallback' fallback intent when the user tries to ask for hint or when there is a misrecognition
- * @param {String} "islandWest - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island West Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandWest - fallback", (conv) => {
+
+/**
+ * Island West Fallback Intent - When the player is at the West Direction and tries to ask for hint or when there is a misrecognition
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandWestFallback = app.intent("islandWest - fallback", (conv) => {
   if (!thingsWeHave.hasCrowbar) {
     const ssml = `<speak>
      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui27.mp3?alt=media&amp;token=9203ee68-7991-46d8-9a27-56fd8ee38573">
@@ -408,12 +517,19 @@ app.intent("islandWest - fallback", (conv) => {
        </speak>`;
   return conv.ask(ssml);
 });
+
 /**
- * Function that handles the 'islandEast-pickUpCrowBar - fallback' fallback intent when the user tries to ask for hint or when there is a misrecognition
- * @param {String} "islandEast-pickUpCrowbar - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island East PickUp Crowbar Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandEast-pickUpCrowBar - fallback", (conv) => {
+
+/**
+ * Island East PickUp Crowbar Fallback Intent - When the player is at the East Direction, and has the crowbar and tries to ask for hint or when there is a misrecognition
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandEastPickUpCrowbarFallback = app.intent("islandEast-pickUpCrowBar - fallback", (conv) => {
   if (!thingsWeHave.banana) {
     const ssml = `<speak>
      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui28.mp3?alt=media&amp;token=a238d097-3c57-43fc-a7e6-1d4575d76227">
@@ -428,12 +544,19 @@ app.intent("islandEast-pickUpCrowBar - fallback", (conv) => {
        </speak>`;
   return conv.ask(ssml);
 });
+
 /**
- * Function that handles the 'islandWest-shakeTree - fallback' fallback intent when the user tries to ask for hint or when there is a misrecognition
- * @param {String} "islandWest-shakeTree - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island West Shake Tree Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandWest-shakeTree - fallback", (conv) => {
+
+/**
+ * Island West Shake Tree Fallback Intent - When the player is at the West Direction tries to ask for hint or when there is a misrecognition, the response is given w.r.t. to the current inventory the player has
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandWestShakeTreeFallback = app.intent("islandWest-shakeTree - fallback", (conv) => {
   if (!thingsWeHave.hasCrowbar) {
     const ssml = `<speak>
      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui27.mp3?alt=media&amp;token=9203ee68-7991-46d8-9a27-56fd8ee38573">
@@ -456,12 +579,19 @@ app.intent("islandWest-shakeTree - fallback", (conv) => {
        </speak>`;
   return conv.ask(ssml);
 });
+
 /**
- * Function that handles the 'islandWest-cutTree - fallback' fallback intent when the user tries to ask for hint or when there is a misrecognition
- * @param {String} "islandWest-cutTree - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island West Cut Tree Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandWest-cutTree - fallback", (conv) => {
+
+/**
+ * Island West Cut Tree Fallback Intent - When the player is at the West Direction tries to ask for hint or when there is a misrecognition, the response is given w.r.t. to the current inventory the player has
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandWestCutTreeFallback = app.intent("islandWest-cutTree - fallback", (conv) => {
   if (!thingsWeHave.banana) {
     const ssml = `<speak>
      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui28.mp3?alt=media&amp;token=a238d097-3c57-43fc-a7e6-1d4575d76227">
@@ -475,12 +605,19 @@ app.intent("islandWest-cutTree - fallback", (conv) => {
        </speak>`;
   return conv.ask(ssml);
 });
+
 /**
- * Function that handles the 'islandEast - fallback' fallback intent when the user tries to ask for hint or when there is a misrecognition
- * @param {String} "islandEast - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island East Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandEast - fallback", (conv) => {
+
+/**
+ * Island East Fallback Intent - When the player is at the East Direction tries to ask for hint or when there is a misrecognition, the response is given w.r.t. to the current inventory the player has
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandEastFallback = app.intent("islandEast - fallback", (conv) => {
   if (!thingsWeHave.banana) {
     const ssml = `<speak>
      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui30.mp3?alt=media&amp;token=fb9c0baa-f73d-4e0d-a6af-19118de4ee00">
@@ -495,12 +632,19 @@ app.intent("islandEast - fallback", (conv) => {
     return conv.ask(ssml);
   }
 });
+
 /**
- * Function that handles the 'islandEast-Givebanana - fallback' fallback intent when the user tries to ask for hint or when there is a misrecognition
- * @param {String} "islandEast-Givebanana - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Island East - Give Banana Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("islandEast-Givebanana - fallback", (conv) => {
+
+/**
+ * Island East Give Banana - Fallback Intent - When the player is at the East Direction and has given the banana to monkey in return of the rope
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let islandEastGiveBananaFallback = app.intent("islandEast-Givebanana - fallback", (conv) => {
   if (thingsWeHave.rope) {
     const ssml = `<speak>
      <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/nui29.mp3?alt=media&amp;token=22bad442-02a6-42ca-9396-d262ebb6694f">
@@ -509,12 +653,19 @@ app.intent("islandEast-Givebanana - fallback", (conv) => {
     return conv.ask(ssml);
   }
 });
+
 /**
- * Function that handles the 'whatDoWeHave' intent when the user asks for Inventory
- * @param {String} "whatDoWeHave" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for What do we have Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("whatDoWehave", (conv) => {
+
+/**
+ * What do we have Intent - When the player wants to know about the current items in the inventory
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let whatDoWeHave = app.intent("whatDoWehave", (conv) => {
   var result = ``;
 
   if (
@@ -567,12 +718,19 @@ app.intent("whatDoWehave", (conv) => {
   const ssml = `<speak>` + result + `</speak>`;
   conv.ask(ssml);
 });
+
 /**
- * Function that handles the 'whereAmIIsland' intent when the user tries to ask for direction
- * @param {String} "whereAmIIsland" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Where am I Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("whereAmIIsland", (conv) => {
+
+/**
+ * Where am I Intent - When the player wants to know their current location in the island
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */ 
+let whereAmIIsland = app.intent("whereAmIIsland", (conv) => {
   switch (currentDirection) {
     case 1:
       const ssml1 = `<speak>
@@ -610,12 +768,20 @@ app.intent("whereAmIIsland", (conv) => {
       conv.ask(ssml5);
   }
 });
+
 /**
- * Function that handles the 'startEscpaeRoom' intent when the user enters the Escape Room
- * @param {String} "startEscapeRoom" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Start Escape Room Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
+ * @param {object} agent - Agent object
  */
-app.intent("startEscapeRoom", (conv, agent) => {
+
+/**
+ * Start Escape Room Intent - When the player is at the start of the second scenario i.e. in the escape room
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let startEscapeRoom = app.intent("startEscapeRoom", (conv, agent) => {
   if (question1Attempts === 0) {
     question1Attempts++;
     const ssml = `<speak>
@@ -709,12 +875,19 @@ app.intent("startEscapeRoom", (conv, agent) => {
     conv.ask(ssml);
   }
 });
+
 /**
- * Function that handles the 'escpaeRoom-Q2' intent when the user is given second question
- * @param {String} "escapeRoom-Q2" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Escape Room - Question 2 Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("escapeRoom-Q2", (conv) => {
+
+/**
+ * Escape Room - Question 2 Intent - When the player is at the escape room, question 2 - after correctly responding to the first question
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let escapeRoomQ2 = app.intent("escapeRoom-Q2", (conv) => {
   if (question2Attempts == 0) {
     question2Attempts++;
     const ssml = `<speak>
@@ -802,12 +975,19 @@ app.intent("escapeRoom-Q2", (conv) => {
     conv.ask(ssml);
   }
 });
+
 /**
- * Function that handles the 'escapeRoom-Q3' intent when the user is asked the third question
- * @param {String} "escapeRoom-Q3" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Escape Room - Question 3 Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("escapeRoom-Q3", (conv) => {
+
+/**
+ * Escape Room - Question 3 Intent - When the player is at the escape room, question 3 - after correctly responding to the second question
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let escapeRoomQuestion3 = app.intent("escapeRoom-Q3", (conv) => {
   if (question3Attempts == 0) {
     question3Attempts++;
 
@@ -936,45 +1116,80 @@ app.intent("escapeRoom-Q3", (conv) => {
     conv.ask(ssml);
   }
 });
+
 /**
- * Function that handles the 'startEscapeRoom - fallback' fallback which returns the callback to "startEscapeRoom" during misrecognition
- * @param {String} "startEscapeRoom - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Start Escape Room Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("startEscapeRoom - fallback", (conv) => {
+
+/**
+ * Start Escape Room Fallback Intent - When the player is at the escape room and there is a misrecognition, the control goes back to the Start Escape Room Intent
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let startEscapeRoomFallback = app.intent("startEscapeRoom - fallback", (conv) => {
   conv.followup("startEscapeRoom");
 });
+
 /**
- * Function that handles the 'escapeRoom-Q2 - fallback' fallback which returns the callback to "escapeRoom-Q2" during misrecognition
- * @param {String} "escapeRoom-Q2 - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Escape Room Question 2  Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("escapeRoom-Q2 - fallback", (conv) => {
+
+/**
+ * Escape Room Question 2 Fallback Intent - When the player is at the escape room, question 2 and there is a misrecognition, the control goes back to the Escape Room Question 2 Intent
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let escapeRoomQ2Fallback = app.intent("escapeRoom-Q2 - fallback", (conv) => {
   conv.followup("escapeRoomQ2");
 });
+
 /**
- * Function that handles the 'escapeRoom-Q3 - fallback' fallback which returns the callback to "escapeRoom-Q3" during misrecognition
- * @param {String} "escapeRoom-Q3 - fallback" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Escape Room Question 3 Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("escapeRoom-Q3 - fallback", (conv) => {
+
+/**
+ * Escape Room Question 3 Fallback Intent - When the player is at the escape room, question 3 and there is a misrecognition, the control goes back to the Escape Room Question 3 Intent
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let escapeRoomQ3Fallback = app.intent("escapeRoom-Q3 - fallback", (conv) => {
   conv.followup("escapeRoomQ3");
 });
+
 /**
- * Function that handles the 'escapeRoomFinish' intent which returns the callback to "shouldWePlay" for the input given
- * @param {String} "escapeRoomFinish" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Escape Room Finish Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("escapeRoomFinish", (conv) => {
+
+/**
+ * Escape Room Finish Intent - Takes the control to shouldWePlay Event in the Gameplay
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let escapeRoomFinish = app.intent("escapeRoomFinish", (conv) => {
   gameStatus = "startEscapeRoom";
   conv.followup("shouldWePlayEvent");
 });
+
 /**
- * Function that handles the 'gameOverIntent' intent which starts the other scene
- * @param {String} "gameOverIntent" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Game Over Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("gameOverIntent", (conv) => {
+
+/**
+ * Game Over Intent - Handles the game over functionality
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let gameOver = app.intent("gameOverIntent", (conv) => {
   if (gameOverFrom === 1) {
     const ssml = `<speak>
       <audio src="https://firebasestorage.googleapis.com/v0/b/nui-adventuregame-covbdv.appspot.com/o/super-mario-falling-%5BAudioTrimmer%20(mp3cut.net)%20(2)%20(2).mp3?alt=media&amp;token=5bb6c24d-982e-4892-9d0e-831a96a2a6e9" >Mario</audio>
@@ -1005,19 +1220,22 @@ app.intent("gameOverIntent", (conv) => {
     conv.close(ssml);
   }
 });
+
 /**
- * Function that handles the 'Defualt Fallback Intent' fallback which triggers for any misrecognitions
- * @param {String} "gameOverIntent" - Name of the intent
- * @callback - Takes the conversation object as first parameter
+ * Callback for Default Fallback Intent
+ * @callback conversation
+ * @param {object} conv - Conververation object
  */
-app.intent("Default Fallback Intent", (conv) => {
+
+/**
+ * Default Fallback Intent - Handles any misrecognition not handled by custom fallbacks
+ * @param {string} string - Intent Name
+ * @param {object} callback
+ */
+let defaultFallbackIntent = app.intent("Default Fallback Intent", (conv) => {
   conv.ask(`I did not get that, Can you repeat it again?`);
 });
-/**
- * Function that handles the 'islandNorth-fallback' fallback which handles misrecognitions
- * @param {String} "islandNorth-fallbacl" - Name of the intent
- * @callback - Takes the conversation object as first parameter
- */
+
 app.intent("islandNorth-fallback", (conv) => {
   conv.ask(`I am not sure this will work!`);
 });
