@@ -10,12 +10,12 @@
         {
           "name": "NameIntent-followup",
           "parameters": {},
-          "lifespan": 1
+          "lifespan": 5
         }
       ],
       "parameters": [
         {
-          "id": "5ee14314-0b37-45c6-aa83-4f0a80aa5e1b",
+          "id": "f95a0800-6b4a-4b1b-b315-58ac038eefa1",
           "required": false,
           "dataType": "@sys.given-name",
           "name": "given-name",
